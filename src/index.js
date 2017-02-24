@@ -4,7 +4,7 @@ import App from './App';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import injectTapEventPlugin from 'react-tap-event-plugin';
-import { browserHistory } from 'react-router';
+import { hashHistory } from 'react-router';
 import Routes from './routes';
 
 import './index.css';
@@ -14,7 +14,7 @@ injectTapEventPlugin();
 
 ReactDOM.render(
   <MuiThemeProvider muiTheme={getMuiTheme()}>
-    <Routes history={browserHistory} />
+    <Routes history={hashHistory} />
   </MuiThemeProvider>,
   document.getElementById('root')
 );

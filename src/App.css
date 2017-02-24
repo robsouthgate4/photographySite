@@ -15,6 +15,8 @@ select:-webkit-autofill:focus {
   transition: background-color 5000s ease-in-out 0s;
 }
 
+.red {color: red}
+
 .App {
   text-align: center;
 }
@@ -57,7 +59,13 @@ select:-webkit-autofill:focus {
 .login-form{
   width: 300px;
   margin: 0 auto;
+  padding-top: 20px;
 }
+
+.error {
+  font-family: Roboto, sans-serif;
+}
+
 .login-submit{
   width: 200px;
   margin: 12px auto;

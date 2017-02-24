@@ -15,7 +15,7 @@ export const LoginForm = (props) => {
     }
 
     return <div className="login-form">
-            <span className="red">{props.loginMessage}</span>
+            <span className="error red">{props.loginMessage}</span>
             <form onSubmit={props.handleSubmit}>
               <TextField
                 value={props.userName}
@@ -34,7 +34,7 @@ export const LoginForm = (props) => {
                 floatingLabelText="Password"
                 type="password"/>
             </form>
-            <RaisedButton className={'login-submit'} onClick={props.handleSubmit} label="Primary" style={submitButtonStyles} />
+            <RaisedButton className={'login-submit'} onClick={props.handleSubmit} label="Login" style={submitButtonStyles} />
            </div>
 
   }
@@ -43,5 +43,5 @@ export const LoginForm = (props) => {
     username: PropTypes.string.isRequired,
     password: PropTypes.string.isRequired,
     handleUsernameChange: PropTypes.func.isRequired,
-    handlePasswordChange: PropTypes.func.isRequired    
+    handlePasswordChange: PropTypes.func.isRequired
   };

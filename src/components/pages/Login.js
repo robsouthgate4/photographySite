@@ -1,8 +1,8 @@
 import React, { PropTypes } from 'react';
-import {Router, browserHistory} from 'react-router';
+import {hashHistory} from 'react-router';
 import {LoginForm} from '../login';
 import {loginUser} from '../../lib/loginService';
-import {authenticateUser, deauthenticateUser} from '../../lib/Auth';
+import {authenticateUser} from '../../lib/Auth';
 
 export class Login extends React.Component {
 
@@ -21,7 +21,6 @@ export class Login extends React.Component {
     }
 
     handleLogin = (evt) => {
-      evt.preventDefault();
       /**
        * If user token is received, set it to local storage and direct to dashboard
        * If not token received, display error sent from server
@@ -32,9 +31,10 @@ export class Login extends React.Component {
             this.setState({loginMessage: res.message})
           } else {
             authenticateUser(res.token);
-            browserHistory.push('/dashboard');
+            hashHistory.push('/dashboard');
           }
         });
+        evt.preventDefault();
     }
     render () {
       return <LoginForm
@@ -46,4 +46,10 @@ export class Login extends React.Component {
                 handleUsernameChange={this.handleUsernameChange}>
             </LoginForm>
     }
+}
+
+Login.PropTypes = {
+  handleSubmit: React.PropTypes.func,
+  handlePasswordChange: React.PropTypes.func,
+  handleUsernameChange: React.PropTypes.func
 }
