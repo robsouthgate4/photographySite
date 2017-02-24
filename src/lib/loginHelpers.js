@@ -1,4 +1,3 @@
-
 export const getUser = (user, users) => {
   let userObj = {};
   users.forEach(item => {

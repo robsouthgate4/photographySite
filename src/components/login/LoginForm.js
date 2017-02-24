@@ -15,6 +15,7 @@ export const LoginForm = (props) => {
     }
 
     return <div className="login-form">
+            <span className="red">{props.loginMessage}</span>
             <form onSubmit={props.handleSubmit}>
               <TextField
                 value={props.userName}
@@ -37,3 +38,10 @@ export const LoginForm = (props) => {
            </div>
 
   }
+
+  LoginForm.propTypes = {
+    username: PropTypes.string.isRequired,
+    password: PropTypes.string.isRequired,
+    handleUsernameChange: PropTypes.func.isRequired,
+    handlePasswordChange: PropTypes.func.isRequired    
+  };
