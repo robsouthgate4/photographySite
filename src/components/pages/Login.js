@@ -30,7 +30,7 @@ export class Login extends React.Component {
           if (!res.token) {
             this.setState({loginMessage: res.message})
           } else {
-            authenticateUser(res.token);
+            authenticateUser(res.token, res.user);
             hashHistory.push('/dashboard');
           }
         });

@@ -17,6 +17,15 @@ select:-webkit-autofill:focus {
 
 .red {color: red}
 
+/** {
+  outline: 1px solid red;
+}*/
+
+body, html, #root {
+  height: 100%;
+  width: 100%;
+}
+
 .App {
   text-align: center;
 }
@@ -69,4 +78,93 @@ select:-webkit-autofill:focus {
 .login-submit{
   width: 200px;
   margin: 12px auto;
+}
+
+/* ****************************** */
+/* .dashboard
+/* ****************************** */
+
+.dashboard {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.dashboard .dashboard-body {
+  width: 100%;
+  padding: 30px;
+}
+
+.dashboard .flyout-menu {
+  position: relative;
+  width: 10%;
+  min-width: 200px;
+  background: #363941;
+}
+
+.dashboard .flyout-menu .menu-links{
+  position: absolute;
+  width: 100%;
+  z-index: 2;
+}
+
+.dashboard .flyout-menu .menu-links .flyout-item{
+  position: relative;
+  display: block;
+  padding: 20px 25px;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: Roboto, sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 2px;
+}
+
+/*.dashboard .flyout-menu .menu-links .flyout-item:hover{
+  background: #5c616f;
+}*/
+
+/*.dashboard .flyout-menu .menu-links .flyout-item.active{
+  background: #5c616f;
+}*/
+
+.dashboard .flyout-menu .menu-links .flyout-item.active::after{
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 16px 10px 16px 0;
+  border-color: transparent #fff transparent transparent;
+}
+
+.dashboard .flyout-menu .user-links{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.dashboard .flyout-menu .user-links .user-link{
+  position: relative;
+}
+
+.dashboard .flyout-menu .user-links .user-link .user-link-svg{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
+.dashboard .flyout-menu .user-links .user-link a{
+  position: relative;
+  text-indent: -999999px;
+  display: inline-block;
+  padding: 20px 30px;
+  cursor: pointer;
+  z-index: 9999;
 }

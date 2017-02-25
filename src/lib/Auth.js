@@ -2,8 +2,9 @@
   /**
     * Authenticate a user. Save a token string in Local Storage
     */
-   export const authenticateUser = (token) => {
+   export const authenticateUser = (token, user) => {
      localStorage.setItem('token', token);
+     localStorage.setItem('user', user);
    }
 
    /**
@@ -18,6 +19,7 @@
     */
    export const deauthenticateUser = () => {
      localStorage.removeItem('token');
+     localStorage.removeItem('user');
    }
 
    /**
