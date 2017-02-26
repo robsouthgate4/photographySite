@@ -63,7 +63,7 @@ export class Dashboard extends React.Component {
   }
 
   handleMenuLinkClick = (index) => {
-    const activeLink = this.state.activeLink;
+    let activeLink = this.state.activeLink;
     activeLink = index;
     this.setState({activeLink: activeLink});
   }
@@ -78,7 +78,7 @@ export class Dashboard extends React.Component {
     const topPos = linkNode.getBoundingClientRect().top;
     const linkHeight = linkNode.clientHeight;
 
-    const currentStyles = this.state.overlayTopStyles;
+    let currentStyles = this.state.overlayTopStyles;
     currentStyles.top = topPos;
     currentStyles.height = linkHeight;
 
