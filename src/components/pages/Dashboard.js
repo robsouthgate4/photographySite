@@ -1,7 +1,20 @@
 import React, { PropTypes } from 'react'
 import ReactDOM from 'react-dom';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import * as userActions from '../../actions/user';
 import {FlyoutMenu} from '../menus';
-import {} from '../../lib/Auth';
+
+function mapStateToProps(state, props) {
+    return {
+        user: state.user
+    };
+}
+function mapDispatchToProps(dispatch) {
+    return {
+        actions: bindActionCreators(userActions, dispatch)
+    }
+}
 
 export class Dashboard extends React.Component {
 
@@ -106,3 +119,5 @@ export class Dashboard extends React.Component {
     )
   }
 }
+
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);

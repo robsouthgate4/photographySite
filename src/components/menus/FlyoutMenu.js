@@ -12,7 +12,8 @@ export const FlyoutMenu = (props) => {
     width: 100 + '%',
     height: props.overlayStyles.height,
     background: '#5c616f',
-    transition: 'top .2s ease'
+    transition: 'top .2s ease',
+    transitionDelay: '.3s'
   }
 
   const userLinks = props.userLinks.map((userLink, index) => {
