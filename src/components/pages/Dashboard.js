@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as userActions from '../../actions/user';
-import {FlyoutMenu} from '../menus';
+import { FlyoutMenu } from '../menus';
 
 function mapStateToProps(state, props) {
     return {
@@ -16,26 +16,11 @@ function mapDispatchToProps(dispatch) {
     }
 }
 
+
 export class Dashboard extends React.Component {
 
   state = {
-    user: localStorage.getItem('user'), // TODO: store this in state, not local Storage
-    projects: [ // TODO: Move over to redux based application
-      {
-        image: 'http://placehold.it/800x600',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim',
-        tages: ['#nature', '#tree', '#sun'],
-        createAt: '12/12/2016',
-        createdBy: 'Daniella'
-      },
-      {
-        image: 'http://placehold.it/800x600',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim',
-        tages: ['#nature', '#tree', '#sun'],
-        createAt: '12/12/2016',
-        createdBy: 'Daniella'
-      }
-    ],
+    user: localStorage.getItem('user'), // TODO: store this in state, not local Storage,
     flyoutMenuOpen: true,
     activeLink: 0,
     overlayTopStyles: {
@@ -82,8 +67,7 @@ export class Dashboard extends React.Component {
   }
 
   handleUserLinkClick = (index) => {
-    console.log(index);
-    //this.setState({activeLink: index})
+    this.props.action.deleteUser(index);
   }
 
   handleMenuLinkHover = (evt) => {
@@ -101,6 +85,9 @@ export class Dashboard extends React.Component {
   }
 
   render = () => {
+
+    console.log(this.props);
+
     return (
       <div className="dashboard">
         <FlyoutMenu
@@ -108,6 +95,7 @@ export class Dashboard extends React.Component {
           handleMenuLinkHover={this.handleMenuLinkHover}
           activeIndex={this.state.activeLink}
           handleMenuLinkClick={this.handleMenuLinkClick}
+          handleUserLinkClick={this.handleUserLinkClick}
           userLinks={this.state.userLinks}
           links={this.state.links}>
         </FlyoutMenu>
