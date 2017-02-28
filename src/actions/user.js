@@ -18,6 +18,6 @@ export const deleteUser = (id) => {
   console.log('deleting user:', id);
   return {
       type: 'delete',
-      user
+      id
   };
 }
