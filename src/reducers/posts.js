@@ -1,3 +1,13 @@
 export const posts = (state = [], action) => {
-  return state;
+  switch (action.type) {
+    case 'ADD_PROJECT':
+      return [
+        ...state,
+        action.payload
+      ]
+      break;
+    default:
+      return state;
+
+  }
 }

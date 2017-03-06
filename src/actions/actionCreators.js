@@ -7,7 +7,7 @@ export const addProject = (project, author) => {
 
 export const deleteProject = (projectId) => {
   return {
-    type: 'ADD_PROJECT',
+    type: 'DELETE_PROJECT',
     projectId
   }
 }
