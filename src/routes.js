@@ -1,20 +1,20 @@
 import React from 'react';
-import { Router, Route, hashHistory } from 'react-router';
+import { Router, Route, browserHistory } from 'react-router';
 import App from './App';
 import { Dashboard, Login, Projects } from './components/pages';
-import {isUserAuthenticated, deauthenticateUser} from './lib/Auth';
+import { isUserAuthenticated, deauthenticateUser } from './lib/Auth';
 
 const logoutUser = (nextState, replace, callBack) => {
   deauthenticateUser();
-  hashHistory.push('/login');
+  browserHistory.push('/login');
 }
 
 const loginUser = (nextState, replace, callBack) => {
-  !isUserAuthenticated() ? callBack() : hashHistory.push('/dashboard');
+  !isUserAuthenticated() ? callBack() : browserHistory.push('/dashboard');
 }
 
 const checkLoggedIn = (nextState, replace, callBack) => {
-  isUserAuthenticated() ? callBack() : hashHistory.push('/login');
+  isUserAuthenticated() ? callBack() : browserHistory.push('/login');
 }
 
 const Routes = (props) => (

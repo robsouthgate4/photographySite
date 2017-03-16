@@ -1,26 +1,28 @@
 import React, { PropTypes } from 'react'
 import ReactDOM from 'react-dom';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import * as userActions from '../../actions/user';
-import { FlyoutMenu } from '../menus';
-
-function mapStateToProps(state, props) {
-    return {
-        user: state.user
-    };
-}
-function mapDispatchToProps(dispatch) {
-    return {
-        actions: bindActionCreators(userActions, dispatch)
-    }
-}
+import {FlyoutMenu} from '../menus';
 
 
 export class Dashboard extends React.Component {
 
   state = {
-    user: localStorage.getItem('user'), // TODO: store this in state, not local Storage,
+    user: localStorage.getItem('user'), // TODO: store this in state, not local Storage
+    projects: [ // TODO: Move over to redux based application
+      {
+        image: 'http://placehold.it/800x600',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim',
+        tages: ['#nature', '#tree', '#sun'],
+        createAt: '12/12/2016',
+        createdBy: 'Daniella'
+      },
+      {
+        image: 'http://placehold.it/800x600',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim',
+        tages: ['#nature', '#tree', '#sun'],
+        createAt: '12/12/2016',
+        createdBy: 'Daniella'
+      }
+    ],
     flyoutMenuOpen: true,
     activeLink: 0,
     overlayTopStyles: {
@@ -67,7 +69,8 @@ export class Dashboard extends React.Component {
   }
 
   handleUserLinkClick = (index) => {
-    this.props.action.deleteUser(index);
+    console.log(index);
+    //this.setState({activeLink: index})
   }
 
   handleMenuLinkHover = (evt) => {
@@ -85,9 +88,6 @@ export class Dashboard extends React.Component {
   }
 
   render = () => {
-
-    console.log(this.props);
-
     return (
       <div className="dashboard">
         <FlyoutMenu
@@ -95,7 +95,6 @@ export class Dashboard extends React.Component {
           handleMenuLinkHover={this.handleMenuLinkHover}
           activeIndex={this.state.activeLink}
           handleMenuLinkClick={this.handleMenuLinkClick}
-          handleUserLinkClick={this.handleUserLinkClick}
           userLinks={this.state.userLinks}
           links={this.state.links}>
         </FlyoutMenu>
@@ -107,5 +106,3 @@ export class Dashboard extends React.Component {
     )
   }
 }
-
-export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
