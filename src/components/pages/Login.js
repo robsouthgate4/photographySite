@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import {hashHistory} from 'react-router';
+import {browserHistory} from 'react-router';
 import {LoginForm} from '../login';
 import {loginUser} from '../../lib/loginService';
 import {authenticateUser} from '../../lib/Auth';
@@ -31,7 +31,7 @@ export class Login extends React.Component {
             this.setState({loginMessage: res.message})
           } else {
             authenticateUser(res.token, res.user);
-            hashHistory.push('/dashboard');
+            browserHistory.push('/dashboard');
           }
         });
         evt.preventDefault();
