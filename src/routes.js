@@ -1,5 +1,6 @@
 import React from 'react';
 import { Router, Route, browserHistory } from 'react-router';
+import { Main } from './Main';
 import App from './App';
 import { Dashboard, Login, Projects } from './components/pages';
 import { isUserAuthenticated, deauthenticateUser } from './lib/Auth';
@@ -20,13 +21,12 @@ const checkLoggedIn = (nextState, replace, callBack) => {
 const Routes = (props) => (
   <Router {...props}>
 
-    <Route path="/" component={App}></Route>
-    <Route path="login" component={Login} onEnter={(nextState, replace, callBack) => loginUser(nextState, replace, callBack)}></Route>
-    <Route path="dashboard" component={Dashboard} onEnter={(nextState, replace, callBack) => checkLoggedIn(nextState, replace, callBack)}>
-        <Route path="projects" component={Projects}></Route>
-        <Route path="logout" onEnter={(nextState, replace, callBack) => logoutUser(nextState, replace, callBack)}></Route>
-    </Route>
-
+      <Route path="/" component={App}></Route>
+      <Route path="login" component={Login} onEnter={(nextState, replace, callBack) => loginUser(nextState, replace, callBack)}></Route>
+      <Route path="dashboard" component={Dashboard} onEnter={(nextState, replace, callBack) => checkLoggedIn(nextState, replace, callBack)}>
+          <Route path="projects" component={Projects}></Route>
+          <Route path="logout" onEnter={(nextState, replace, callBack) => logoutUser(nextState, replace, callBack)}></Route>
+      </Route>
   </Router>
 );
 

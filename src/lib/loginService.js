@@ -1,6 +1,6 @@
 /* Login user */
 export const loginUser = (username, password) => {
-  return fetch('http://localhost:9000/api/authenticate', {
+  return fetch('http://localhost:4000/api/authenticate', {
   	method: 'POST',
     headers: {
       'Accept': 'application/json',

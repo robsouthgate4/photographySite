@@ -21,7 +21,7 @@ select:-webkit-autofill:focus {
   outline: 1px solid red;
 }*/
 
-body, html, #root {
+body, html, #root, .main {
   height: 100%;
   width: 100%;
 }
