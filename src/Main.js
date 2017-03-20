@@ -13,7 +13,7 @@ const Main = React.createClass({
   render () {
     return (
       <div className="main">
-        {this.props.children, this.props}
+        {React.cloneElement(this.props.children, { mappedProps: this.props })}
       </div>
     )
   }
