@@ -11,10 +11,9 @@ const mapStateToProps = function(store) {
 
 const Main = React.createClass({
   render () {
-    console.log('main loaded');
     return (
       <div className="main">
-        {this.props.children}
+        {this.props.children, this.props}
       </div>
     )
   }
