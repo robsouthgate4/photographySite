@@ -46,6 +46,10 @@ export class Dashboard extends React.Component {
     ]
   }
 
+  getChildContext() {
+    return {reduxprops: this.props.reduxprops};
+  }
+
   handleMenuLinkClick = (index) => {
     let activeLink = this.state.activeLink;
     activeLink = index;
@@ -89,3 +93,7 @@ export class Dashboard extends React.Component {
     )
   }
 }
+
+Dashboard.childContextTypes = {
+  reduxprops: React.PropTypes.object
+};
