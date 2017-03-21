@@ -20,15 +20,14 @@ const checkLoggedIn = (nextState, replace, callBack) => {
 
 const Routes = (props) => (
   <Router {...props}>
-
-      <Route path="/" component={Main}>
+      <Route path="/" component={App}>
         <Route path="login" component={Login} onEnter={(nextState, replace, callBack) => loginUser(nextState, replace, callBack)}></Route>
         <Route path="dashboard" component={Dashboard} onEnter={(nextState, replace, callBack) => checkLoggedIn(nextState, replace, callBack)}>
             <Route path="projects" component={Projects}></Route>
+            <Route path="instagram" component={Projects}></Route>{/*TODO create IG component*/}
             <Route path="logout" onEnter={(nextState, replace, callBack) => logoutUser(nextState, replace, callBack)}></Route>
         </Route>
       </Route>
-
   </Router>
 );
 
