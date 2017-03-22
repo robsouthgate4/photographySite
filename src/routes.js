@@ -12,7 +12,7 @@ const logoutUser = (nextState, replace, callBack) => {
 }
 
 const loginUser = (nextState, replace, callBack) => {
-  !isUserAuthenticated() ? callBack() : browserHistory.push('/dashboard');
+  !isUserAuthenticated() ? callBack() : browserHistory.push('/dashboard/projects');
 }
 
 const checkLoggedIn = (nextState, replace, callBack) => {

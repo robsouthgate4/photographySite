@@ -31,7 +31,7 @@ export class Login extends React.Component {
             this.setState({loginMessage: res.message})
           } else {
             authenticateUser(res.token, res.user);
-            browserHistory.push('/dashboard');
+            browserHistory.push('/dashboard/projects');
           }
         });
         evt.preventDefault();

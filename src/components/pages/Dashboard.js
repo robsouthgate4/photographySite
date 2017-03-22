@@ -32,10 +32,6 @@ export class Dashboard extends React.Component {
     ],
     links: [
       {
-        text: 'Dashboard',
-        path: ''
-      },
-      {
         text: 'Projects',
         path: 'projects'
       },
@@ -72,6 +68,10 @@ export class Dashboard extends React.Component {
     this.setState({
       overlayTopStyles: currentStyles
     });
+  }
+
+  handleDelete = (projectId) => {
+    console.log(projectId);
   }
 
   render = () => {

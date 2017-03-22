@@ -3,11 +3,11 @@ import { syncHistoryWithStore } from 'react-router-redux';
 import { browserHistory } from 'react-router';
 import  rootReducer  from  './reducers';
 
-import posts from './data/posts';
+import projects from './data/projects';
 import comments from './data/comments';
 
 const initialState = {
-  posts,
+  projects,
   comments
 }
 

@@ -6,7 +6,7 @@ import './App.css';
 
 const mapStateToProps = function(state) {
   return {
-    posts: state.posts,
+    projects: state.projects,
     comments: state.comments
   };
 }

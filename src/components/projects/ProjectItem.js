@@ -3,7 +3,6 @@ import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'mat
 import FlatButton from 'material-ui/FlatButton';
 
 export const ProjectItem = (props) => {
-  console.log(props);
   return (
     <Card className="project-item">
       <CardMedia>
@@ -11,8 +10,8 @@ export const ProjectItem = (props) => {
       </CardMedia>
       <CardTitle subtitle={props.caption}/>
       <CardActions>
-        <FlatButton label="Action1" />
-        <FlatButton label="Action2" />
+        <FlatButton label="Edit" />
+        <FlatButton onClick={props.onDelete} label="Delete" />
       </CardActions>
     </Card>
   );
