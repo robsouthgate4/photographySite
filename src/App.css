@@ -183,7 +183,7 @@ h1 {
   width: 250px;
   margin-right: 10px;
   margin-bottom: 10px;
-  transition: all .3s;
+  transition: all .5s cubic-bezier(0.64, 0.57, 0.67, 1.53);
 }
 
 .example-appear {
@@ -192,12 +192,12 @@ h1 {
 
 .example-appear.example-appear-active {
   transform: scale(1);
-  transition: all 1s ease-in;
+  transition: all .5s cubic-bezier(0.64, 0.57, 0.67, 1.53);
 }
 
 .example-enter.example-enter-active {
   transform: scale(1);
-  transition: all 1000ms ease-in;
+  transition: all .5s cubic-bezier(0.64, 0.57, 0.67, 1.53);
 }
 
 .example-leave {
@@ -208,5 +208,5 @@ h1 {
   width: 0;
   height: 0;
   opacity: 0;
-  transition: all 1000ms ease-in;
+  transition: all .5 cubic-bezier(0.64, 0.57, 0.67, 1.53);
 }
