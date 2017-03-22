@@ -70,10 +70,6 @@ export class Dashboard extends React.Component {
     });
   }
 
-  handleDelete = (projectId) => {
-    console.log(projectId);
-  }
-
   render = () => {
     return (
       <div className="dashboard">
@@ -87,7 +83,7 @@ export class Dashboard extends React.Component {
         </FlyoutMenu>
         <div className="dashboard-body">
           <h1>Welcome {this.state.user} to your dashboard</h1>
-          {this.props.children}
+          {React.cloneElement(this.props.children, {...this.props})}
         </div>
       </div>
     )

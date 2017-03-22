@@ -11,7 +11,7 @@ export const ProjectItem = (props) => {
       <CardTitle subtitle={props.caption}/>
       <CardActions>
         <FlatButton label="Edit" />
-        <FlatButton onClick={props.onDelete} label="Delete" />
+        <FlatButton onClick={() => props.onDelete(props.id)} label="Delete" />
       </CardActions>
     </Card>
   );
