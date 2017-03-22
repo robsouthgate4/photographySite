@@ -7,6 +7,9 @@ export const projects = (state = [], action) => {
         action.payload
       ]
       break;
+    case 'DELETE_PROJECT':
+        return state.filter((project) => project.id != action.projectId)
+      break;
     case 'GET_ALL_PROJECTS':
       return state
       break;

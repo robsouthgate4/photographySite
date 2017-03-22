@@ -5,16 +5,16 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 export class ProjectList extends React.Component {
 
   handleDelete = (projectId) => {
-    console.log(projectId);
+    this.props.reduxprops.deleteProject(projectId);
   }
 
   render() {
-    const projectItems = this.context.reduxprops.projects.map((post,index) => {
+    const projectItems = this.props.reduxprops.projects.map((post,index) => {
       return <ProjectItem
-              projects={this.context.reduxprops.projects}
+              projects={this.props.reduxprops.projects}
               {...post}
               onDelete={this.handleDelete}
-              key={index}>
+              key={post.id}>
             </ProjectItem>;
     });
     return (
@@ -30,8 +30,4 @@ export class ProjectList extends React.Component {
       </div>
     )
   }
-}
-
-ProjectList.contextTypes = {
-  reduxprops: React.PropTypes.object
 }

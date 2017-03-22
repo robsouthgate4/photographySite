@@ -176,6 +176,7 @@ h1 {
 .project-list span{
   display: flex;
   flex-flow: row wrap;
+  flex-basis: auto;
 }
 
 .project-item {
@@ -191,12 +192,12 @@ h1 {
 
 .example-appear.example-appear-active {
   transform: scale(1);
-  transition: transform 1s ease-in;
+  transition: all 1s ease-in;
 }
 
 .example-enter.example-enter-active {
   transform: scale(1);
-  transition: transform 500ms ease-in;
+  transition: all 1000ms ease-in;
 }
 
 .example-leave {
@@ -204,6 +205,8 @@ h1 {
 }
 
 .example-leave.example-leave-active {
-  transform: scale(0.01);
-  transition: transform 300ms ease-in;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  transition: all 1000ms ease-in;
 }
