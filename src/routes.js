@@ -2,8 +2,8 @@ import React from 'react';
 import { Router, Route, browserHistory } from 'react-router';
 import Main from './Main';
 import App from './App';
-import { Dashboard, Login } from './components/pages';
-import { ProjectList } from './components/projects';
+import { Dashboard, Login } from './containers';
+import Project from './containers/Project';
 import { isUserAuthenticated, deauthenticateUser } from './lib/Auth';
 
 const logoutUser = (nextState, replace, callBack) => {
@@ -24,8 +24,7 @@ const Routes = (props) => (
       <Route path="/" component={App}>
         <Route path="login" component={Login} onEnter={(nextState, replace, callBack) => loginUser(nextState, replace, callBack)}></Route>
         <Route path="dashboard" component={Dashboard} onEnter={(nextState, replace, callBack) => checkLoggedIn(nextState, replace, callBack)}>
-            <Route path="projects" component={ProjectList}></Route>
-            <Route path="instagram" component={ProjectList}></Route>{/*TODO create IG component*/}
+            <Route path="projects" component={Project}></Route>
             <Route path="logout" onEnter={(nextState, replace, callBack) => logoutUser(nextState, replace, callBack)}></Route>
         </Route>
       </Route>

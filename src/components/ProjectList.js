@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
-import { ProjectItem } from './';
+import { ProjectItem } from './ProjectItem';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
-import { SearchBox } from '../';
+import { SearchBox } from './SearchBox';
 
 export class ProjectList extends React.Component {
 
@@ -10,7 +10,7 @@ export class ProjectList extends React.Component {
   }
 
   handleDelete = (projectId) => {
-    this.props.reduxprops.deleteProject(projectId);
+    this.props.deleteProject(projectId);
   }
 
   handleUserInput = (evt) => {
@@ -22,13 +22,16 @@ export class ProjectList extends React.Component {
   }
 
   render() {
-    const projectItems = this.props.reduxprops.projects.map((post,index) => {
-      if (post.caption.includes(this.state.filter)) {
+    const projectItems = this.props.projects.map((project,index) => {
+      /**
+      Show all items or items that contain
+      text equal to user search input
+      */
+      if (project.caption.toLowerCase().includes(this.state.filter)) {
         return <ProjectItem
-                projects={this.props.reduxprops.projects}
-                {...post}
+                {...project}
                 onDelete={this.handleDelete}
-                key={post.id}>
+                key={project.id}>
               </ProjectItem>;
       }
     });
@@ -38,9 +41,9 @@ export class ProjectList extends React.Component {
               <ReactCSSTransitionGroup
                   transitionName="example"
                   transitionAppear={true}
-                  transitionAppearTimeout={300}
-                  transitionEnterTimeout={300}
-                  transitionLeaveTimeout={300}>
+                  transitionAppearTimeout={1000}
+                  transitionEnterTimeout={1000}
+                  transitionLeaveTimeout={1000}>
                   {projectItems}
               </ReactCSSTransitionGroup>
             </div>

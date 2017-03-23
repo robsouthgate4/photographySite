@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 import ReactDOM from 'react-dom';
-import {FlyoutMenu} from '../menus';
+import {FlyoutMenu} from '../components';
 
 
 export class Dashboard extends React.Component {
@@ -40,10 +40,6 @@ export class Dashboard extends React.Component {
         path: 'instagram'
       }
     ]
-  }
-
-  getChildContext() {
-    return {reduxprops: this.props.reduxprops};
   }
 
   handleMenuLinkClick = (index) => {
@@ -89,7 +85,3 @@ export class Dashboard extends React.Component {
     )
   }
 }
-
-Dashboard.childContextTypes = {
-  reduxprops: React.PropTypes.object
-};

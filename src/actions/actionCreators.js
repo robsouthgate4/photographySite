@@ -20,3 +20,9 @@ export const updateProject = (projectId, author, body) => {
       body
     }
 }
+
+export const fetchProjects = () => {
+    return {
+      type: 'FETCH_PROJECTS'
+    }
+}

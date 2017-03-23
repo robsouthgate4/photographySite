@@ -1,8 +1,8 @@
 import React, { PropTypes } from 'react';
 import {browserHistory} from 'react-router';
-import {LoginForm} from '../login';
-import {loginUser} from '../../lib/loginService';
-import {authenticateUser} from '../../lib/Auth';
+import {LoginForm} from '../components';
+import {loginUser} from '../lib/loginService';
+import {authenticateUser} from '../lib/Auth';
 
 export class Login extends React.Component {
 
