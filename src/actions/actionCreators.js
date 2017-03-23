@@ -22,7 +22,11 @@ export const updateProject = (projectId, author, body) => {
 }
 
 export const fetchProjects = () => {
-    return {
-      type: 'FETCH_PROJECTS'
-    }
+    fetch("http://localhost:4000/api/projects", {
+    	method: 'get'
+    }).then(function(response) {
+    	console.log(response);
+    }).catch(function(err) {
+    	console.log(err);
+    });
 }

@@ -15,6 +15,5 @@ export const projects = (state = [], action) => {
       break;
     default:
       return state;
-
   }
 }

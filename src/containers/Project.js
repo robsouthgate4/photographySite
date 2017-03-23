@@ -5,9 +5,11 @@ import * as actionCreators from '../actions/actionCreators';
 import {ProjectList} from '../components';
 
 export class Project extends React.Component {
+
   componentDidMount = () => {
-    console.log(this.props);
+    this.props.fetchProjects();
   }
+
   render () {
     return <div>
             <ProjectList {...this.props} ></ProjectList>
@@ -16,7 +18,6 @@ export class Project extends React.Component {
 }
 
 const mapStateToProps = function(state) {
-  console.log(state.projects);
   return {
     projects: state.projects
   };
