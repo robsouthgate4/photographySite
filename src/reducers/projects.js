@@ -13,6 +13,12 @@ export const projects = (state = [], action) => {
     case 'FETCH_PROJECTS':
       return state
       break;
+    case 'FETCHING_PROJECTS':
+      return state
+    break;
+    case 'RESOLVED_FETCH_PROJECTS':
+      return action.payload
+    break;
     default:
       return state;
   }

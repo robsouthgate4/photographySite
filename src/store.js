@@ -12,7 +12,13 @@ const initialState = {
   comments
 }
 
-const store = createStore(rootReducer, initialState);
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+const store = createStore(rootReducer, composeEnhancers (
+  applyMiddleware(thunk)
+));
+
+
 export const history = syncHistoryWithStore(browserHistory, store);
 
 export default store;

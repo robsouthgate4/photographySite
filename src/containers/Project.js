@@ -12,7 +12,7 @@ export class Project extends React.Component {
 
   render () {
     return <div>
-            <ProjectList {...this.props} ></ProjectList>
+              <ProjectList {...this.props} ></ProjectList>
           </div>
   }
 }
