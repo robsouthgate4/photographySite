@@ -15,11 +15,9 @@ const initialState = {
   lastUpdated: null
 }
 
-export const projectsApp = (state = initialState, action) => {
-  console.log(action.type);
+export const projectsApp = (state = initialState, action) => {  
   switch (action.type) {
     case ADD_PROJECT:
-      console.log('asdasdasd');
       return {
         ...state,
         projects: [...state.projects, action.project]

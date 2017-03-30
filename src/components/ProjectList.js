@@ -32,8 +32,7 @@ export class ProjectList extends React.Component {
         return <ProjectItem
                 key={project._id}
                 {...project}
-                onDelete={this.handleDelete}
-                >
+                onDelete={this.handleDelete}>
               </ProjectItem>;
       }
     });
@@ -43,9 +42,9 @@ export class ProjectList extends React.Component {
               <ReactCSSTransitionGroup
                   transitionName="example"
                   transitionAppear={true}
-                  transitionAppearTimeout={1000}
-                  transitionEnterTimeout={1000}
-                  transitionLeaveTimeout={1000}>
+                  transitionAppearTimeout={300}
+                  transitionEnterTimeout={300}
+                  transitionLeaveTimeout={300}>
                   {projectItems}
               </ReactCSSTransitionGroup>
             </div>
