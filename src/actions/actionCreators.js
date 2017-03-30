@@ -1,45 +1,40 @@
-export const addProject = (project, author) => {
+const ADD_PROJECT = 'ADD_PROJECT';
+const DELETE_PROJECT = 'DELETE_PROJECT';
+const UPDATE_PROJECT = 'UPDATE_PROJECT';
+const FETCH_PROJECT = 'FETCH_PROJECT';
+const FETCH_ALL_PROJECTS = 'FETCH_ALL_PROJECTS';
+
+export const addProject = (project) => {
   return {
-    type: 'ADD_PROJECT',
-    project, author
+    type: ADD_PROJECT,
+    project: project
   }
 }
 
 export const deleteProject = (projectId) => {
   return {
-    type: 'DELETE_PROJECT',
-    projectId
+    type: DELETE_PROJECT,
+    projectId: projectId
   }
 }
 
-export const updateProject = (projectId, author, body) => {
+export const updateProject = (data, projectId) => {
     return {
-      type: 'UPDATE_PROJECT',
-      projectId,
-      author,
-      body
+      type: UPDATE_PROJECT,
+      data: data,
+      projectId: projectId
     }
 }
 
-export const resolvedFetchProjects = (data) => {
-  return {
-    type: 'RESOLVED_FETCH_PROJECTS',
-    payload: data
-  }
+export const fetchProject = (projectId) => {
+    return {
+      type: FETCH_PROJECT,
+      projectId: projectId
+    }
 }
 
-export const fetchingProjects = (data) => {
-  return {
-    type: 'FETCHING_PROJECTS',
-    payload: 'Loading projects'
-  }
-}
-
-export const fetchProjects = () => {
-    return (dispatch) => {
-      dispatch(fetchingProjects());
-      fetch("http://localhost:4000/api/projects")
-       .then(response => response.json())
-       .then(json => dispatch(resolvedFetchProjects(json)))
+export const fetchAllProjects = () => {
+    return {
+      type: FETCH_ALL_PROJECTS
     }
 }
