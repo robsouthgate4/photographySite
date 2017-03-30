@@ -7,5 +7,5 @@ export const FlyoutMenuItem = (props) => {
             onClick={ (evt) => props.handleMenuLinkClick(props.linkIndex)}
             className={`flyout-item ${props.activeIndex === props.linkIndex ? 'active' : ''}`}
             to={`/dashboard/${props.link.path}`}>{props.link.text}
-         </Link>
+          </Link>
 }
