@@ -1,6 +1,5 @@
 import React from 'react';
 import { Router, Route, browserHistory } from 'react-router';
-import Main from './Main';
 import App from './App';
 import { Dashboard, Login } from './containers';
 import Project from './containers/Project';

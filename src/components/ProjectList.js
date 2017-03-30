@@ -10,7 +10,7 @@ export class ProjectList extends React.Component {
   }
 
   handleDelete = (projectId) => {
-    this.props.deleteProject(projectId);
+    //this.props.deleteProject(projectId);
   }
 
   handleUserInput = (evt) => {
@@ -23,19 +23,20 @@ export class ProjectList extends React.Component {
 
   render() {
     console.log(this.props);
-    // const projectItems = this.props.projects.map((project,index) => {
-    //   /**
-    //   Show all items or items that contain
-    //   text equal to user search input
-    //   */
-    //   if (project.caption.toLowerCase().includes(this.state.filter)) {
-    //     return <ProjectItem
-    //             {...project}
-    //             onDelete={this.handleDelete}
-    //             key={project.id}>
-    //           </ProjectItem>;
-    //   }
-    // });
+    const projectItems = this.props.projects.map((project,index) => {
+      /**
+      Show all items or items that contain
+      text equal to user search input
+      */
+      if (project.caption && project.caption.toLowerCase().includes(this.state.filter)) {
+        return <ProjectItem
+                key={project._id}
+                {...project}
+                onDelete={this.handleDelete}
+                >
+              </ProjectItem>;
+      }
+    });
     return <div>
             <SearchBox onChange={this.handleUserInput}></SearchBox>
             <div className="project-list">
@@ -45,7 +46,7 @@ export class ProjectList extends React.Component {
                   transitionAppearTimeout={1000}
                   transitionEnterTimeout={1000}
                   transitionLeaveTimeout={1000}>
-                  {/*projectItems*/}
+                  {projectItems}
               </ReactCSSTransitionGroup>
             </div>
           </div>
