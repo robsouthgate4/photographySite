@@ -6,7 +6,7 @@ import { getProjectById } from '../lib/projectHelpers';
 export class ProjectDetail extends React.Component {
 
   componentDidMount = () => {
-
+    
   }
 
   render () {

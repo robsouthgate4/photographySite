@@ -5,8 +5,6 @@ import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
 import nock from 'nock'
 
-
-
 const middlewares = [ thunk ]
 const mockStore = configureMockStore(middlewares)
 
@@ -26,6 +24,16 @@ describe('actions', () => {
     }
     expect(actions.addProject(project)).toEqual(expectedAction)
   })
+
+  it('should create an action to delete a project', () => {
+    const projectId = "1161022966406956503";
+    const expectedAction = {
+      type: types.DELETE_PROJECT,
+      projectId
+    }
+    expect(actions.deleteProject(projectId)).toEqual(expectedAction)
+  })
+
 })
 
 describe('async actions', () => {

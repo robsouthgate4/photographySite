@@ -56,7 +56,11 @@ export const projectsApp = (state = initialState, action) => {
       })
       break;
     case types.DELETE_PROJECT:
-        return state.filter((project) => project.id != action.projectId)
+        console.log(state.projects)
+        return {
+          ...state,
+          projects: state.projects.filter(project => project._id !== action.projectId)
+        }
       break;
     default:
       return state;

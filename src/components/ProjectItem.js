@@ -12,7 +12,7 @@ export const ProjectItem = (props) => {
       <CardTitle subtitle={props.caption}/>
       <CardActions>
         <Link to='/'><FlatButton label="Edit" /></Link>
-        <FlatButton onClick={() => props.onDelete(props.id)} label="Delete" />
+        <FlatButton onClick={() => props.onDelete(props._id)} label="Delete" />
       </CardActions>
     </Card>
   );

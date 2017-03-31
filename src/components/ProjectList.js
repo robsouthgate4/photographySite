@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react'
 import { ProjectItem } from './ProjectItem';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { SearchBox } from './SearchBox';
+import { Spinner } from './';
 
 export class ProjectList extends React.Component {
 
@@ -10,7 +11,7 @@ export class ProjectList extends React.Component {
   }
 
   handleDelete = (projectId) => {
-    //this.props.deleteProject(projectId);
+    this.props.onDelete(projectId);
   }
 
   handleUserInput = (evt) => {
@@ -22,6 +23,11 @@ export class ProjectList extends React.Component {
   }
 
   render() {
+
+    if ( this.props.isFetching ) {
+      return <Spinner></Spinner>
+    }
+
     const projectItems = this.props.projects.map((project,index) => {
       /**
       Show all items or items that contain
@@ -35,6 +41,7 @@ export class ProjectList extends React.Component {
               </ProjectItem>;
       }
     });
+
     return <div>
             <SearchBox onChange={this.handleUserInput}></SearchBox>
             <div className="project-list">

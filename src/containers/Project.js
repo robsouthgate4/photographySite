@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux';
-import { updateProject, addProject, incrementCounter, fetchProjects } from '../actions/actionCreators';
+import { updateProject, addProject, incrementCounter, fetchProjects, deleteProject } from '../actions/actionCreators';
 import { ProjectList } from '../components';
 import { getProjectById } from '../lib/projectHelpers';
 
@@ -21,12 +21,15 @@ const mapStateToProps = function(state, ownProps) {
   return {
     projects: state.projectsApp.projects,
     counter: state.projectsApp.counter,
-    singleProject: getProjectById(state.projectsApp.projects, ownProps.params.id)
-  };
+    isFetching: state.projectsApp.isFetching
+  }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    onDelete: (id) => {
+      dispatch(deleteProject(id));
+    },
     onLoad: () => {
       dispatch(fetchProjects());
     },

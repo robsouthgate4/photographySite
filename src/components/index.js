@@ -6,4 +6,5 @@ export { FlyoutMenu } from './FlyoutMenu';
 export { FlyoutMenuItem } from './FlyoutMenuItem';
 export { FlyoutUserMenuItem } from './FlyoutUserMenuItem';
 export { OverlayHover } from './OverlayHover';
-export {LoginForm} from './LoginForm';
+export { LoginForm } from './LoginForm';
+export { Spinner } from './Spinner';
