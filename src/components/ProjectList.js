@@ -22,7 +22,6 @@ export class ProjectList extends React.Component {
   }
 
   render() {
-    console.log(this.props);
     const projectItems = this.props.projects.map((project,index) => {
       /**
       Show all items or items that contain

@@ -33,7 +33,7 @@ export class Dashboard extends React.Component {
     links: [
       {
         text: 'Projects',
-        path: 'projects'
+        path: 'projects/projects-list'
       },
       {
         text: 'Instagram',
@@ -79,7 +79,7 @@ export class Dashboard extends React.Component {
         </FlyoutMenu>
         <div className="dashboard-body">
           <h1>Welcome {this.state.user} to your dashboard</h1>
-          {React.cloneElement(this.props.children, {...this.props})}
+          {this.props.children}
         </div>
       </div>
     )

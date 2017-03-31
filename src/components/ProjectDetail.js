@@ -1,13 +1,17 @@
 import React, { PropTypes } from 'react'
+import { connect } from 'react-redux';
+import * as actions from '../actions/actionCreators';
+import { getProjectById } from '../lib/projectHelpers';
 
 export class ProjectDetail extends React.Component {
 
-  componentDidMount () {
-    console.log('Project Details!!!')
-    console.log(this.props);
+  componentDidMount = () => {
+
   }
 
   render () {
-    return <div>Project details</div>
+    return <div>
+            <h3></h3>
+          </div>
   }
 }

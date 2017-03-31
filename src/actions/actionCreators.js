@@ -1,75 +1,72 @@
 import 'babel-polyfill'
 import fetch from 'isomorphic-fetch'
+import * as types from './actionTypes';
 
-export const ADD_PROJECT = 'ADD_PROJECT';
-export const DELETE_PROJECT = 'DELETE_PROJECT';
-export const UPDATE_PROJECT = 'UPDATE_PROJECT';
-export const FETCH_PROJECT = 'FETCH_PROJECT';
-export const REQUEST_PROJECTS = 'REQUEST_PROJECTS';
-export const RECEIVE_PROJECTS = 'RECEIVE_PROJECTS';
-export const INCREMENT = 'INCREMENT';
+
 
 export const addProject = (project) => {
-  return {
-    type: ADD_PROJECT,
-    project: project
-  }
+    return {
+        type: types.ADD_PROJECT,
+        project: project
+    }
 }
 
 export const deleteProject = (projectId) => {
-  return {
-    type: DELETE_PROJECT,
-    projectId: projectId
-  }
+    return {
+        type: types.DELETE_PROJECT,
+        projectId: projectId
+    }
 }
 
 export const updateProject = (data, projectId) => {
     return {
-      type: UPDATE_PROJECT,
-      data: data,
-      projectId: projectId
+        type: types.UPDATE_PROJECT,
+        data: data,
+        projectId: projectId
     }
 }
 
 export const fetchProject = (projectId) => {
     return {
-      type: FETCH_PROJECT,
-      projectId: projectId
+        type: types.FETCH_PROJECT,
+        projectId: projectId
     }
 }
 
 
 export const incrementCounter = () => {
     return {
-      type: INCREMENT
+        type: types.INCREMENT
     }
 }
 
 export const requestProjects = () => {
     return {
-      type: REQUEST_PROJECTS
+        type: types.REQUEST_PROJECTS
     }
 }
 
 export const receiveProjects = (json) => {
     return {
-      type: RECEIVE_PROJECTS,
-      projects: json,
-      receivedAt: Date.now()
+        type: types.RECEIVE_PROJECTS,
+        projects: json,
+        receivedAt: Date.now()
     }
 }
 
 export const fetchProjects = () => {
 
-  return function (dispatch) {
+    return function(dispatch) {
 
-    dispatch(requestProjects())
+        dispatch(requestProjects())
 
-    return fetch(`http://localhost:4000/api/projects`)
-      .then(response => response.json())
-      .then(json =>
-          dispatch(receiveProjects(json))
-      )
+          return fetch(`http://localhost:4000/api/projects`)
+              .then(response => response.json())
+              .then(json =>
+                  dispatch(receiveProjects(json))
+              )
 
-  }
+
+
+    }
 }

@@ -1,29 +1,27 @@
 import React, { PropTypes } from 'react'
-import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import {updateProject, addProject, incrementCounter, fetchProjects} from '../actions/actionCreators';
-import {ProjectList} from '../components';
+import { updateProject, addProject, incrementCounter, fetchProjects } from '../actions/actionCreators';
+import { ProjectList } from '../components';
+import { getProjectById } from '../lib/projectHelpers';
 
 export class Project extends React.Component {
 
   componentDidMount = () => {
-
     this.props.onLoad();
-
   }
 
   render () {
-    console.log(this.props);
     return <div>
-              <ProjectList {...this.props} ></ProjectList>
+              {React.cloneElement(this.props.children, {...this.props})}
            </div>
   }
 }
 
-const mapStateToProps = function(state) {
+const mapStateToProps = function(state, ownProps) {
   return {
     projects: state.projectsApp.projects,
-    counter: state.projectsApp.counter
+    counter: state.projectsApp.counter,
+    singleProject: getProjectById(state.projectsApp.projects, ownProps.params.id)
   };
 }
 

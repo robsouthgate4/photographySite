@@ -1,38 +1,35 @@
-import {ADD_PROJECT,
-        DELETE_PROJECT,
-        UPDATE_PROJECT,
-        FETCH_PROJECT,
-        INCREMENT,
-        REQUEST_PROJECTS,
-        RECEIVE_PROJECTS} from '../actions/actionCreators'
+import * as types from '../actions/actionTypes'
 
 import projects from '../data/projects';
 
 const initialState = {
   projects: [],
+  singleProject: {},
   counter: 0,
   isFetching: false,
   lastUpdated: null
 }
 
-export const projectsApp = (state = initialState, action) => {  
+export const projectsApp = (state = initialState, action) => {
   switch (action.type) {
-    case ADD_PROJECT:
+    case types.ADD_PROJECT:
       return {
         ...state,
         projects: [...state.projects, action.project]
       }
       break;
-    case FETCH_PROJECT:
+    case types.FETCH_PROJECT:
         return Object.assign({}, state, {
           projects: state.projects.map((project, index) => {
             if ( project.id === action.projectId ) {
-              return Object.assign({}, project)
+              return Object.assign({}, project, {
+                selectedProject: project
+              })
             }
           })
         })
         break;
-    case UPDATE_PROJECT:
+    case types.UPDATE_PROJECT:
         return Object.assign({}, state, {
           projects: state.projects.map((project, index) => {
             if ( project.id === action.projectId ) {
@@ -41,24 +38,24 @@ export const projectsApp = (state = initialState, action) => {
           })
         })
         break;
-    case INCREMENT:
+    case types.INCREMENT:
         return Object.assign({}, state, {
           counter: state.counter + 1
         })
         break;
-  case REQUEST_PROJECTS:
+  case types.REQUEST_PROJECTS:
       return Object.assign({}, state, {
         isFetching: true
       })
       break;
-  case RECEIVE_PROJECTS:
+  case types.RECEIVE_PROJECTS:
       return Object.assign({}, state, {
         isFetching: false,
         projects: action.projects,
         lastUpdated: action.receivedAt
       })
       break;
-    case DELETE_PROJECT:
+    case types.DELETE_PROJECT:
         return state.filter((project) => project.id != action.projectId)
       break;
     default:
