@@ -53,7 +53,6 @@ export const receiveProjects = (json) => {
   }
 
 export const receiveProject = (response) => {
-      console.log(response);
       return {
           type: types.RECEIVE_PROJECT,
           project: response,
@@ -64,9 +63,6 @@ export const receiveProject = (response) => {
 export const fetchProjects = (projectId) => {
 
     return function(dispatch) {
-
-      console.log(projectId);
-
 
       if (projectId !== undefined) {
 

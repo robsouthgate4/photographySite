@@ -68,7 +68,7 @@ export const projectsApp = (state = initialState, action) => {
     case types.DELETE_PROJECT:
         return {
           ...state,
-          projects: state.projects.filter(project => project._id !== action.projectId)
+          projects: state.projects.filter(project => project.id !== action.projectId)
         }
       break;
     default:
