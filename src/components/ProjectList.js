@@ -35,7 +35,8 @@ export class ProjectList extends React.Component {
       */
       if (project.caption && project.caption.toLowerCase().includes(this.state.filter)) {
         return <ProjectItem
-                key={project._id}
+                key={project.id}
+                {...this.props}
                 {...project}
                 onDelete={this.handleDelete}>
               </ProjectItem>;

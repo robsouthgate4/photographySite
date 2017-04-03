@@ -21,7 +21,9 @@ const mapStateToProps = function(state, ownProps) {
   return {
     projects: state.projectsApp.projects,
     counter: state.projectsApp.counter,
-    isFetching: state.projectsApp.isFetching
+    isFetching: state.projectsApp.isFetching,
+    isFetchingActive: state.projectsApp.isFetchingActive,
+    activeProject: state.projectsApp.activeProject
   }
 }
 

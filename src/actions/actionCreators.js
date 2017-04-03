@@ -52,10 +52,11 @@ export const receiveProjects = (json) => {
     }
   }
 
-export const receiveProject = (json) => {
+export const receiveProject = (response) => {
+      console.log(response);
       return {
           type: types.RECEIVE_PROJECT,
-          projects: json,
+          project: response,
           receivedAt: Date.now()
       }
   }
@@ -66,23 +67,22 @@ export const fetchProjects = (projectId) => {
 
       console.log(projectId);
 
+
       if (projectId !== undefined) {
 
         dispatch(requestProject())
           return fetch(`http://localhost:4000/api/projects/${projectId}`)
               .then(response => response.json())
-              .then(json =>
-                  dispatch(receiveProject(json))
+              .then(json => dispatch(receiveProject(json))
               )
 
       } else {
 
         dispatch(requestProjects())
           return fetch(`http://localhost:4000/api/projects`)
-              .then(response => response.json())
-              .then(json =>
-                  dispatch(receiveProjects(json))
-              )
+            .then(response => response.json())
+            .then(json => dispatch(receiveProjects(json))
+          )
 
       }
 

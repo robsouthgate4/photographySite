@@ -4,7 +4,7 @@ import projects from '../data/projects';
 
 const initialState = {
   projects: [],
-  singleProject: {},
+  activeProject: {},
   counter: 0,
   isFetching: false,
   isFetchingActive: false,
@@ -19,16 +19,17 @@ export const projectsApp = (state = initialState, action) => {
         projects: [...state.projects, action.project]
       }
       break;
-    case types.FETCH_PROJECT:
+    case types.REQUEST_PROJECT:
         return {
           ...state,
-          isFetching: true
+          isFetchingActive: true
         }
         break;
     case types.RECEIVE_PROJECT:
         return {
           ...state,
-          activeProject: action.project
+          activeProject: action.project,
+          isFetchingActive: false
         }
       break;
     case types.UPDATE_PROJECT:
