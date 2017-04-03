@@ -26,14 +26,6 @@ export const updateProject = (data, projectId) => {
     }
 }
 
-export const fetchProject = (projectId) => {
-    return {
-        type: types.FETCH_PROJECT,
-        projectId: projectId
-    }
-}
-
-
 export const incrementCounter = () => {
     return {
         type: types.INCREMENT
@@ -46,25 +38,55 @@ export const requestProjects = () => {
     }
 }
 
+export const requestProject = () => {
+    return {
+        type: types.REQUEST_PROJECT
+    }
+}
+
 export const receiveProjects = (json) => {
     return {
         type: types.RECEIVE_PROJECTS,
         projects: json,
         receivedAt: Date.now()
     }
-}
+  }
 
-export const fetchProjects = () => {
+export const receiveProject = (json) => {
+      return {
+          type: types.RECEIVE_PROJECT,
+          projects: json,
+          receivedAt: Date.now()
+      }
+  }
+
+export const fetchProjects = (projectId) => {
 
     return function(dispatch) {
 
-        dispatch(requestProjects())
+      console.log(projectId);
 
+      if (projectId !== undefined) {
+
+        dispatch(requestProject())
+          return fetch(`http://localhost:4000/api/projects/${projectId}`)
+              .then(response => response.json())
+              .then(json =>
+                  dispatch(receiveProject(json))
+              )
+
+      } else {
+
+        dispatch(requestProjects())
           return fetch(`http://localhost:4000/api/projects`)
               .then(response => response.json())
               .then(json =>
                   dispatch(receiveProjects(json))
               )
+
+      }
+
+
 
 
 

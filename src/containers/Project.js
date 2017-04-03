@@ -35,6 +35,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     increment: () => {
       dispatch(incrementCounter());
+    },
+    getProject: (projectId) => {
+      dispatch(fetchProjects(projectId));
     }
   }
 }

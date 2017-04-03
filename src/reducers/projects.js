@@ -7,6 +7,7 @@ const initialState = {
   singleProject: {},
   counter: 0,
   isFetching: false,
+  isFetchingActive: false,
   lastUpdated: null
 }
 
@@ -19,44 +20,51 @@ export const projectsApp = (state = initialState, action) => {
       }
       break;
     case types.FETCH_PROJECT:
-        return Object.assign({}, state, {
-          projects: state.projects.map((project, index) => {
-            if ( project.id === action.projectId ) {
-              return Object.assign({}, project, {
-                selectedProject: project
-              })
-            }
-          })
-        })
+        return {
+          ...state,
+          isFetching: true
+        }
         break;
+    case types.RECEIVE_PROJECT:
+        return {
+          ...state,
+          activeProject: action.project
+        }
+      break;
     case types.UPDATE_PROJECT:
-        return Object.assign({}, state, {
+        return {
+          ...state,
           projects: state.projects.map((project, index) => {
             if ( project.id === action.projectId ) {
-              return Object.assign({}, action.data)
+              return {
+                ...state,
+                projects: action.data
+              }
             }
           })
-        })
+        }
         break;
     case types.INCREMENT:
-        return Object.assign({}, state, {
+        return {
+          ...state,
           counter: state.counter + 1
-        })
+        }
         break;
   case types.REQUEST_PROJECTS:
-      return Object.assign({}, state, {
+      return {
+        ...state,
         isFetching: true
-      })
+      }
       break;
   case types.RECEIVE_PROJECTS:
-      return Object.assign({}, state, {
+      return {
+        ...state,
         isFetching: false,
         projects: action.projects,
         lastUpdated: action.receivedAt
-      })
+      }
       break;
     case types.DELETE_PROJECT:
-        console.log(state.projects)
         return {
           ...state,
           projects: state.projects.filter(project => project._id !== action.projectId)
