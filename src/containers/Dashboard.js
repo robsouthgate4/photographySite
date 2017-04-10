@@ -50,6 +50,7 @@ export class Dashboard extends React.Component {
 
   handleUserLinkClick = (index) => {
     console.log(index);
+    this.setState({activeLink: index});
   }
 
   handleMenuLinkHover = (evt) => {

@@ -1,9 +1,9 @@
 import React from 'react';
 import { Router, Route, browserHistory } from 'react-router';
 import App from './App';
-import { Dashboard, Login } from './containers';
+import { Dashboard, Login, User } from './containers';
 import Project from './containers/Project';
-import {ProjectDetail, ProjectList} from './components';
+import {ProjectDetail, ProjectList, NotFound} from './components';
 import { isUserAuthenticated, deauthenticateUser } from './lib/Auth';
 
 const logoutUser = (nextState, replace, callBack) => {
@@ -28,8 +28,10 @@ const Routes = (props) => (
               <Route path="projects-list" component={ProjectList}></Route>
               <Route path="project/:id" component={ProjectDetail}></Route>
             </Route>
+            <Route path="user" component={User}></Route>
             <Route path="logout" onEnter={(nextState, replace, callBack) => logoutUser(nextState, replace, callBack)}></Route>
         </Route>
+        <Route path="*" component={NotFound}></Route>
       </Route>
   </Router>
 );

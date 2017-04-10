@@ -6,6 +6,13 @@
       "first": "Rob",
       "last": "southgate",
       "password": "chelsea90"
+    },
+    {
+      "id": 1,
+      "username": "james20",
+      "first": "James",
+      "last": "Smith",
+      "password": "james10"
     }
   ]
 }

@@ -4,7 +4,6 @@ import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'mat
 import FlatButton from 'material-ui/FlatButton';
 
 export const ProjectItem = (props) => {
-  console.log(props);
   return (
     <Card className="project-item">
       <CardMedia>

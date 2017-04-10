@@ -38,7 +38,7 @@ export const FlyoutMenu = (props) => {
     <div className="flyout-menu">
       <div className="user-links">{userLinks}</div>
       <div className="menu-links">{menuLinks}</div>
-      <OverlayHover hoverStyles={overlayStyles}></OverlayHover>
+      {/*<OverlayHover hoverStyles={overlayStyles}></OverlayHover>*/}
     </div>
   )
 }
