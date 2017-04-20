@@ -1,6 +1,6 @@
 /* eslint-disable */
 import React, { PropTypes } from 'react'
-import { Spinner } from '../components';
+import { Spinner } from '../app/Spinner';
 
 export const UserList = (props) => {
 

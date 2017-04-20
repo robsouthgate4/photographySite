@@ -1,8 +1,7 @@
 /* eslint-disable */
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux';
-import { updateProject, addProject, incrementCounter, fetchProjects, deleteProject } from '../actions/projects/actionCreators';
-import { ProjectList } from '../components';
+import { fetchProjects, deleteProject } from './projectActionCreators';
 import { getProjectById } from '../lib/projectHelpers';
 
 export class Project extends React.Component {
@@ -13,12 +12,11 @@ export class Project extends React.Component {
 
   componentDidMount = () => {
     this.props.onLoad();
-    console.log(this.props);
   }
 
   render () {
     return <div>
-              <ProjectList {...this.props}></ProjectList>
+              {React.cloneElement(this.props.children, {...this.props})}
            </div>
   }
 }
@@ -35,17 +33,14 @@ const mapStateToProps = function(state, ownProps) {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onDelete: (id) => {
-      dispatch(deleteProject(id));
+    onDelete: (projectId) => {
+      dispatch(deleteProject(projectId))
     },
     onLoad: () => {
       dispatch(fetchProjects());
     },
-    increment: () => {
-      dispatch(incrementCounter());
-    },
     getProject: (projectId) => {
-      dispatch(fetchProject(projectId));
+      dispatch(fetchProjects(projectId));
     }
   }
 }

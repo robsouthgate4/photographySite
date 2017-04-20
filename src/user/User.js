@@ -1,8 +1,8 @@
 /* eslint-disable */
 import React, { PropTypes } from 'react';
-import { UserList } from '../components';
+import { UserList } from './UserList';
 import { connect } from 'react-redux';
-import {fetchUsers} from '../actions/users/actionCreators';
+import {fetchUsers} from './userActionCreators';
 
 export class User extends React.Component {
 

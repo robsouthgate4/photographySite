@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React, { PropTypes } from 'react'
 import ReactDOM from 'react-dom';
-import {FlyoutMenu} from '../components';
+import {FlyoutMenu} from './FlyoutMenu';
 
 
 export class Dashboard extends React.Component {

@@ -11,6 +11,7 @@ export const FlyoutUserMenuItem = (props) => {
               <path d={props.userLink.icon} />
             </SvgIcon>
             <Link
+              activeClassName="active"
               onClick={ () => props.handleUserLinkClick(props.linkIndex)}
               className={`flyout-user-item`}
               to={`/dashboard/${props.userLink.path}`}>{props.userLink.text}

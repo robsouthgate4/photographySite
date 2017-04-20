@@ -13,12 +13,12 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const store = createStore(
   rootReducer,
-  composeEnhancers(applyMiddleware(logger, thunkMiddleware, socketIoMiddleware))
+  composeEnhancers(applyMiddleware(thunkMiddleware, socketIoMiddleware))
 );
 
 
 store.subscribe(()=>{
-  console.log('new client state', store.getState());
+  //console.log('new client state', store.getState());
 });
 
 store.dispatch({type:'server/hello', data:'Hello!'});

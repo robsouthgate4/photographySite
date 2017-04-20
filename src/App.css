@@ -138,7 +138,7 @@ h1 {
   background: #5c616f;
 }*/
 
-/*.dashboard .flyout-menu .menu-links .flyout-item.active::after{
+.dashboard .flyout-menu .menu-links .flyout-item.active::after{
   content: '';
   position: absolute;
   right: 0;
@@ -149,7 +149,7 @@ h1 {
   border-style: solid;
   border-width: 16px 10px 16px 0;
   border-color: transparent #fff transparent transparent;
-}*/
+}
 
 .dashboard .flyout-menu .user-links{
   width: 100%;
@@ -208,6 +208,11 @@ h1 {
   font-family: Roboto;
 }
 
+.project-detail-container {
+  width: calc(100% - 30px);
+  max-width: 900px;
+}
+
 .example-appear {
   transform: scale(0.01);
 }
@@ -224,6 +229,46 @@ h1 {
 
 .example-leave {
   transform: scale(1);
+}
+
+.fileInput {
+  border: 1px solid rgb(224, 224, 224);
+  padding: 10px;
+  margin: 15px 15px 15px 0;
+  cursor: pointer;
+}
+.imgPreview {
+  text-align: center;
+  margin: 5px 15px 15px 0;
+  height: 200px;
+  width: 500px;
+  border: 1px solid rgb(224, 224, 224);
+
+}
+.imgPreview img {
+  width: 100%;
+  height: 100%;
+}
+.previewText {
+  width: 100%;
+  margin-top: 20px;
+}
+.submitButton {
+  padding: 12px;
+  margin-left: 10px;
+  background: #fff;
+  border: 4px solid #d3d3d3;
+  border-radius: 15px;
+  font-weight: 700;
+  font-size: 10pt;
+  cursor: pointer;
+}
+.submitButton:hover {
+  background: #efefef;
+}
+.centerText {
+  text-align: center;
+  width: 500px;
 }
 
 .example-leave.example-leave-active {

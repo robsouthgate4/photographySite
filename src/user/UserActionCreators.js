@@ -1,6 +1,6 @@
 import 'babel-polyfill'
 import fetch from 'isomorphic-fetch'
-import * as types from './actionTypes';
+import * as types from './userActionTypes';
 
 
 export const receiveUsers = (json) => {

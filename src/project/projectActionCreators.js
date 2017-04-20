@@ -82,9 +82,5 @@ export const fetchProjects = (projectId) => {
 
       }
 
-
-
-
-
     }
 }

@@ -1,9 +1,11 @@
 /* eslint-disable */
 import React, { PropTypes } from 'react'
+import { Link } from 'react-router';
 import { ProjectItem } from './ProjectItem';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { SearchBox } from '../app/SearchBox';
 import { Spinner } from '../app/Spinner';
+import RaisedButton from 'material-ui/RaisedButton';
 
 export class ProjectList extends React.Component {
 
@@ -24,9 +26,6 @@ export class ProjectList extends React.Component {
   }
 
   render() {
-
-    console.log(this.props);
-
     if ( this.props.isFetching ) {
       return <Spinner></Spinner>
     }
@@ -46,8 +45,13 @@ export class ProjectList extends React.Component {
       }
     });
 
+    const projectBtnStyle = {
+      marginBottom: 20 + 'px'
+    }
+
     return <div>
             <SearchBox onChange={this.handleUserInput}></SearchBox>
+            <Link to={'dashboard/projects/create-new'}><RaisedButton label="Create new" style={projectBtnStyle}/></Link>
             <div className="project-list">
               <ReactCSSTransitionGroup
                   transitionName="example"

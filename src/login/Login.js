@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React, { PropTypes } from 'react';
 import {hashHistory} from 'react-router';
-import {LoginForm} from '../components';
+import {LoginForm} from './LoginForm';
 import {loginUser} from '../lib/loginService';
 import {authenticateUser} from '../lib/Auth';
 

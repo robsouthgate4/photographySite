@@ -1,5 +1,5 @@
 /* eslint-disable */
-import * as types from '../actions/users/actionTypes';
+import * as types from './userActionTypes';
 
 const initialState = {
   users: [],
