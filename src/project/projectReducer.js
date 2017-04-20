@@ -1,5 +1,5 @@
 /* eslint-disable */
-import * as types from '../actions/projects/actionTypes';
+import * as types from './projectActionTypes';
 
 const initialState = {
   projects: [],

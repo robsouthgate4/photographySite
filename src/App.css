@@ -138,7 +138,7 @@ h1 {
   background: #5c616f;
 }*/
 
-.dashboard .flyout-menu .menu-links .flyout-item.active::after{
+/*.dashboard .flyout-menu .menu-links .flyout-item.active::after{
   content: '';
   position: absolute;
   right: 0;
@@ -149,7 +149,7 @@ h1 {
   border-style: solid;
   border-width: 16px 10px 16px 0;
   border-color: transparent #fff transparent transparent;
-}
+}*/
 
 .dashboard .flyout-menu .user-links{
   width: 100%;

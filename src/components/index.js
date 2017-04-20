@@ -8,3 +8,4 @@ export { FlyoutUserMenuItem } from './FlyoutUserMenuItem';
 export { OverlayHover } from './OverlayHover';
 export { LoginForm } from './LoginForm';
 export { Spinner } from './Spinner';
+export { UserList } from './UserList';

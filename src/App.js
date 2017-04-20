@@ -1,4 +1,4 @@
-import { bindActionCreators } from 'redux';
+/* eslint-disable */
 import { connect } from 'react-redux';
 import './App.css';
 

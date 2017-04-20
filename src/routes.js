@@ -1,39 +1,40 @@
 import React from 'react';
-import { Router, Route, browserHistory } from 'react-router';
+import { Router, Route, hashHistory } from 'react-router';
 import App from './App';
-import { Dashboard, Login, User } from './containers';
-import Project from './containers/Project';
-import {ProjectDetail, ProjectList, NotFound} from './components';
+import {Dashboard} from './app/Dashboard';
+import { Login } from './login/Login';
+import Project from './project/Project';
+import User  from './user/User';
+import {NotFound} from './app/NotFound';
+import ProjectDetail from './project/ProjectDetail';
 import { isUserAuthenticated, deauthenticateUser } from './lib/Auth';
 
 const logoutUser = (nextState, replace, callBack) => {
   deauthenticateUser();
-  browserHistory.push('/login');
+  hashHistory.push('/login');
 }
 
 const loginUser = (nextState, replace, callBack) => {
-  !isUserAuthenticated() ? callBack() : browserHistory.push('/dashboard/projects');
+  !isUserAuthenticated() ? callBack() : hashHistory.push('/dashboard/projects');
 }
 
 const checkLoggedIn = (nextState, replace, callBack) => {
-  isUserAuthenticated() ? callBack() : browserHistory.push('/login');
+  isUserAuthenticated() ? callBack() : hashHistory.push('/login');
 }
 
-const Routes = (props) => (
-  <Router {...props}>
+const Routes = (props) => {
+  return <Router history={hashHistory} {...props}>
       <Route path="/" component={App}>
         <Route path="login" component={Login} onEnter={(nextState, replace, callBack) => loginUser(nextState, replace, callBack)}></Route>
         <Route path="dashboard" component={Dashboard} onEnter={(nextState, replace, callBack) => checkLoggedIn(nextState, replace, callBack)}>
-            <Route path="projects" component={Project}>
-              <Route path="projects-list" component={ProjectList}></Route>
-              <Route path="project/:id" component={ProjectDetail}></Route>
-            </Route>
+            <Route path="projects" component={Project}></Route>
+            <Route path="projects/:id" component={ProjectDetail}></Route>
             <Route path="user" component={User}></Route>
             <Route path="logout" onEnter={(nextState, replace, callBack) => logoutUser(nextState, replace, callBack)}></Route>
         </Route>
         <Route path="*" component={NotFound}></Route>
       </Route>
   </Router>
-);
+}
 
 export default Routes;

@@ -2,8 +2,8 @@
 import React, { PropTypes } from 'react'
 import { ProjectItem } from './ProjectItem';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
-import { SearchBox } from './SearchBox';
-import { Spinner } from './';
+import { SearchBox } from '../app/SearchBox';
+import { Spinner } from '../app/Spinner';
 
 export class ProjectList extends React.Component {
 
