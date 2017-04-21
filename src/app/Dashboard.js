@@ -81,7 +81,7 @@ export class Dashboard extends React.Component {
           links={this.state.links}>
         </FlyoutMenu>
         <div className="dashboard-body">
-          <h1>Welcome {this.state.user} to your dashboard</h1>
+          <h1>{this.state.user}</h1>
           {this.props.children}
         </div>
       </div>
