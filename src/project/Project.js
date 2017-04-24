@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux';
-import { fetchProjects, deleteProject } from './projectActionCreators';
+import { fetchProjects, deleteProject, addProject } from './projectActionCreators';
 import { getProjectById } from '../lib/projectHelpers';
 
 export class Project extends React.Component {
@@ -11,7 +11,9 @@ export class Project extends React.Component {
   }
 
   componentDidMount = () => {
-    this.props.onLoad();
+    if (this.props.projects.length === 0) {
+      this.props.onLoad();
+    }    
   }
 
   render () {
@@ -35,6 +37,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     onDelete: (projectId) => {
       dispatch(deleteProject(projectId))
+    },
+    onAdd: (project) => {
+      dispatch(addProject(project))
     },
     onLoad: () => {
       dispatch(fetchProjects());

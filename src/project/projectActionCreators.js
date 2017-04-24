@@ -2,27 +2,54 @@ import 'babel-polyfill'
 import fetch from 'isomorphic-fetch'
 import * as types from './projectActionTypes';
 
-
-
 export const addProject = (project) => {
-    return {
-        type: types.ADD_PROJECT,
-        project: project
-    }
+
+  let data = new FormData();
+
+  data.append('file', project.uploadedFile);
+  data.append('caption', project.projectName);
+  data.append('tags', project.tags);
+
+  return function(dispatch, getState) {
+      return fetch(`http://localhost:4000/api/projects`,{
+          method: 'POST',
+          body: data
+        })
+        .then(response => response.json())
+        .then(json => dispatch(addProjectSuccess(json)))
+
+      }
+}
+
+export const addProjectSuccess = (project) => {
+  return {
+    type: types.ADD_PROJECT_SUCCESS,
+    project
+  };
 }
 
 export const deleteProject = (projectId) => {
-    return {
-        type: types.DELETE_PROJECT,
-        projectId: projectId
-    }
+  return function(dispatch, getState) {
+      return fetch(`http://localhost:4000/api/projects/${projectId}`,{
+          method: 'delete'
+        })
+        .then(dispatch(deleteProjectSuccess(projectId)))
+
+      }
+}
+
+export const deleteProjectSuccess = (projectId) => {
+  return {
+      type: types.DELETE_PROJECT,
+      projectId
+  }
 }
 
 export const updateProject = (data, projectId) => {
     return {
         type: types.UPDATE_PROJECT,
-        data: data,
-        projectId: projectId
+        data,
+        projectId
     }
 }
 

@@ -12,7 +12,7 @@ const initialState = {
 
 export const projectsApp = (state = initialState, action) => {
   switch (action.type) {
-    case types.ADD_PROJECT:
+    case types.ADD_PROJECT_SUCCESS:
       return {
         ...state,
         projects: [...state.projects, action.project]
@@ -67,7 +67,7 @@ export const projectsApp = (state = initialState, action) => {
     case types.DELETE_PROJECT:
         return {
           ...state,
-          projects: state.projects.filter(project => project.id !== action.projectId)
+          projects: state.projects.filter(project => project._id !== action.projectId)
         }
       break;
     default:

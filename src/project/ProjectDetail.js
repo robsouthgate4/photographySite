@@ -17,6 +17,8 @@ export default class ProjectDetail extends React.Component {
       return <Spinner></Spinner>
     }
 
+    console.log(this.props.activeProject)
+
     return <Card className="project-detail-container">
             <CardMedia>
               <img src={this.props.activeProject.display_src} />

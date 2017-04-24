@@ -199,6 +199,10 @@ h1 {
   z-index: 9999;
 }
 
+.new-project-form {
+  width: 50%;
+}
+
 .project-list span{
   display: flex;
   flex-flow: row wrap;
@@ -231,8 +235,9 @@ h1 {
 
 .drop-zone {
   margin-top: 50px;
-  border: 1px solid rgba(0, 0, 0, 0.298039);
-  max-width: 256px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
   padding-top: 100px;
   padding-bottom: 100px;
   padding-left: 30px;

@@ -26,9 +26,11 @@ export class ProjectList extends React.Component {
   }
 
   render() {
+
     if ( this.props.isFetching ) {
       return <Spinner></Spinner>
     }
+
 
     const projectItems = this.props.projects.map((project,index) => {
       /**
@@ -37,7 +39,7 @@ export class ProjectList extends React.Component {
       */
       if (project.caption && project.caption.toLowerCase().includes(this.state.filter)) {
         return <ProjectItem
-                key={project.id}
+                key={project._id}
                 {...this.props}
                 {...project}
                 onDelete={this.handleDelete}>

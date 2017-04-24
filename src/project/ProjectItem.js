@@ -12,8 +12,8 @@ export const ProjectItem = (props) => {
       </CardMedia>
       <CardTitle subtitle={props.caption}/>
       <CardActions>
-        <Link to={`/dashboard/projects/${props.id}`}><FlatButton label="Edit" /></Link>
-        <FlatButton onClick={() => props.onDelete(props.id)} label="Delete" />
+        <Link to={`/dashboard/projects/${props._id}`}><FlatButton label="Edit" /></Link>
+        <FlatButton onClick={() => props.onDelete(props._id)} label="Delete" />
       </CardActions>
     </Card>
   );
