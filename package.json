@@ -9,6 +9,7 @@
   "dependencies": {
     "lodash": "^4.17.4",
     "material-ui": "^0.17.0",
+    "node-slack": "0.0.7",
     "react": "^15.5.4",
     "react-dom": "^15.4.2",
     "react-dropzone": "^3.13.0",
